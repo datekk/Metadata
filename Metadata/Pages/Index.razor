@@ -1,0 +1,57 @@
+﻿@page "/"
+@using Metadata.Data
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<br />
+
+<EditForm Model="kunden" OnValidSubmit="DoSubmitAction">
+
+
+    <div class="col-sm-6">
+        <div class="form-row">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <div class="col-12">
+                <label class="col-form-label">Vorname</label>
+                <InputText class="form-control" @bind-Value="kunden.Vorname" />
+            </div>
+            <div class="col-12">
+                <label class="col-form-label">Nachname</label>
+                <InputText class="form-control" @bind-Value="kunden.Nachnamme" />
+            </div>
+            <div class="col-12">
+                <label class="col-form-label">Email</label>
+                <InputText class="form-control" @bind-Value="kunden.Email" />
+            </div>
+            <br />
+
+
+        </div>
+        <div class="form-row">
+            <button type="submit" class="btn btn-outline-info">absenden</button>
+        </div>
+
+    </div>
+
+
+
+</EditForm>
+
+@code{
+
+    Kunden kunden;
+
+    protected override void OnInitialized()
+    {
+        kunden = new Kunden();
+    }
+
+    void DoSubmitAction()
+    {
+
+    }
+}
